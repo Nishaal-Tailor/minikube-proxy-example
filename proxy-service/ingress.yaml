@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: proxy-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: practical.tangent.proxy
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: proxy-service
+          servicePort: 80

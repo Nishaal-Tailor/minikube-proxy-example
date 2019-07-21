@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proxy-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: proxy-service
+  template:
+    metadata:
+      labels:
+        app: proxy-service
+    spec:
+      containers:
+      - name: proxy-service
+        image: nishaaltailor/internal-k8s-service:latest
+        ports:
+        - containerPort: 3001
+        envFrom:
+        - configMapRef:
+            name: internal-urls

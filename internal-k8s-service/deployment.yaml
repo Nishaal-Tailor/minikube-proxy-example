@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: internal-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: internal-service
+  template:
+    metadata:
+      labels:
+        app: internal-service
+    spec:
+      containers:
+      - name: internal-service
+        image: nishaaltailor/internal-k8s-service:latest
+        ports:
+        - containerPort: 3001
