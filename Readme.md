@@ -124,7 +124,7 @@ Hello from service exposed internally to k8s cluster via ClusterIP
 
 Simply run the following script (Assuming your kubeconfig is pointing to the Minikube cluster):
 ```
-./deploy-all.sh
+./deploy-solution.sh
 ```
 To clean up the resources on Minikube, run the following script:
 ```
